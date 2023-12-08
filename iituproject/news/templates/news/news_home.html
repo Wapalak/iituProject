@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Представьте, что здесь есть что-то осмысленное{% endblock%}
+
+{% block content %}
+    <h1>Новости</h1>
+    <h3>234</h3>
+    <p>123</p>
+    {% include 'main/test.html' %}
+    {% for el in values %}
+        <p> {{el}} </p>
+    {% endfor %}
+{% endblock %}
