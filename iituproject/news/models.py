@@ -7,7 +7,7 @@ class Articles(models.Model):
     date = models.DateTimeField('Дата публикации')
 
     def __str__(self):
-        return f'Отзыв:{self.title}'
+        return self.title
 
     class Meta:
         verbose_name = 'New table'
