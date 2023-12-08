@@ -4,8 +4,8 @@
 
 {% block content %}
     <h1>Наши отзывы</h1>
-    {% if news %}
-        {% for el in news %}
+    {% if reviews_home %}
+        {% for el in reviews %}
             <div class="alert alert-warning">
                 <h3> {{ el.title }}</h3>
                 <p> {{ el.review }}</p>
