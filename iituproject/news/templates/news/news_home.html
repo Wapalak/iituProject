@@ -3,11 +3,15 @@
 {% block title %}Представьте, что здесь есть что-то осмысленное{% endblock%}
 
 {% block content %}
-    <h1>Новости</h1>
-    <h3>234</h3>
-    <p>123</p>
-    {% include 'main/test.html' %}
-    {% for el in values %}
-        <p> {{el}} </p>
-    {% endfor %}
+    <h1>Наши отзывы</h1>
+    {% if news %}
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3> {{ el.title }}</h3>
+                <p> {{ el.review }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>Отзывов пока нет!</h1>
+    {% endif %}
 {% endblock %}
