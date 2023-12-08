@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для боковой панели */
+
+aside {
+    background-color: #333;
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+    height: 100vh; /* Высота на весь экран */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+aside ul {
+    list-style: none
+}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul a:hover {
+    color: #ccc;
+}
+
+/* Стили для основного контента */
+
+main {
+    margin-left: 220px; /* Чтобы контент не перекрывал боковую панель */
+    padding: 20px;
+}
+
+/* Стили для навигационных элементов */
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.fa-house:before {
+    content: "\f015"; /* Unicode символ для иконки дома */
+    margin-right: 5px;
+}
