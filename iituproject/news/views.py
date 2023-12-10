@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView
+from django.http import Http404
 
 def news_home(request):
+    # Получаем новости, сортируем по дате
     news = Articles.objects.order_by('-date')
     return render(request, 'news/news_home.html', {'news': news})
 
@@ -20,12 +22,14 @@ def create(request):
             form.save()
             return redirect('news_home')
         else:
-            error = 'Отзыв заполнен неверно'
+            error = 'Форма заполнена неверно'
 
-    form = ArticlesForm()
+    else:  # Добавляем блок else для GET-запросов
+        form = ArticlesForm()
 
-    data = {'form': form,
-            'error': error
+    data = {
+        'form': form,
+        'error': error
     }
 
     return render(request, 'news/create.html', data)

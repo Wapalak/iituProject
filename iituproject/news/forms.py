@@ -8,6 +8,7 @@ class ArticlesForm(ModelForm):
         fields = ['title', 'review', 'full_text']
 
         widgets = {
+            # Виджеты для полей формы
             "title": TextInput(attrs={'class': 'form', 'placeholder': 'Имя Фамилия'}),
             "review": TextInput(attrs={'class': 'form', 'placeholder': 'Краткий отзыв'}),
             "full_text": Textarea(attrs={'class': 'form', 'placeholder': 'Текст отзыва'}),

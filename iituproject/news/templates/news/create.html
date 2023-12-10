@@ -4,15 +4,15 @@
 
 {% block content %}
     <div class="features">
-        <h1>Создание отзыва</h1>
+        <h1>Создание отзыва</h1>  <!-- Заголовок страницы создания отзыва -->
         <form method="post">
             {% csrf_token %}
-            {{ form.title }} <br>
-            {{ form.review }} <br>
-            {{ form.full_text }} <br>
-            {{ form.date }}<br>
-            <span>{{ error }}</span>
-            <button class="btn btn-success" type="submit">Опубликовать отзыв</button> <br>
+            {{ form.title }} <br>  <!-- Поле для ввода заголовка отзыва -->
+            {{ form.review }} <br>  <!-- Поле для ввода краткого отзыва -->
+            {{ form.full_text }} <br>  <!-- Поле для ввода полного текста отзыва -->
+            {{ form.date }}<br>  <!-- Поле для ввода даты (автозаполнение) -->
+            <span>{{ error }}</span>  <!-- Отображение ошибки (если есть) -->
+            <button class="btn btn-success" type="submit">Опубликовать отзыв</button> <br>  <!-- Кнопка для отправки формы создания отзыва -->
         </form>
     </div>
 {% endblock %}

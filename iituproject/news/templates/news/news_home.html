@@ -6,14 +6,13 @@
     <h1>Отзывы</h1>
     {% if news %}
         {% for el in news %}
-         <div class="alert alert-warning">
-                <p> {{ el.title }} </p>
-                <p> {{ el.review }} </p>
-                <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать полностью</a>
-         </div>
+            <div class="alert alert-warning">
+                <p> {{ el.title }} </p>  <!-- Вывод заголовка отзыва -->
+                <p> {{ el.review }} </p>  <!-- Вывод краткого отзыва -->
+                <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать полностью</a>  <!-- Кнопка для перехода к деталям отзыва -->
+            </div>
         {% endfor %}
     {% else %}
-        <p>В данный момент отзывов нет!</p>
+        <p>В данный момент отзывов нет!</p>  <!-- Сообщение о отсутствии отзывов -->
     {% endif %}
-
 {% endblock %}
