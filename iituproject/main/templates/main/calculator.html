@@ -1,0 +1,47 @@
+<h2>Калькулятор кредита</h2>
+<form id="loanForm">
+    <label for="amount">Сумма кредита:</label>
+    <input type="number" id="amount" placeholder="Введите сумму"><br>
+    <label for="term">Срок кредитования (в месяцах):</label>
+    <div class="range-container">
+        <input type="range" id="term" min="1" max="24" value="12">
+        <span class="range-value" id="termValue">12</span> месяцев
+    </div> <!-- Ползунок для выбора количества месяцев -->
+    <label for="interest">Процентная ставка (автоматическая):</label>
+    <input type="text" id="interest" disabled><br>
+    <button type="button" onclick="calculate()">Рассчитать</button>
+</form>
+<div id="result"></div>
+<script>
+    function calculate() {
+        // Получаем значения из формы
+        const amount = parseFloat(document.getElementById('amount').value);
+        const term = parseFloat(document.getElementById('term').value);
+
+        // Рассчитываем процентную ставку в зависимости от срока кредитования
+        let interestRate;
+        if (term <= 3) {
+            interestRate = 5;
+        } else if (term <= 6) {
+            interestRate = 7;
+        } else if (term <= 12) {
+            interestRate = 15;
+        } else {
+            interestRate = 30;
+        }
+
+        // Проводим расчет ежемесячного платежа
+        const monthlyInterest = (interestRate / 100) / 12; // Преобразуем годовую ставку в месячную
+        const monthlyPayment = ((amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -term))).toFixed(2);
+
+        // Выводим результат на страницу
+        document.getElementById('result').innerHTML = `Ежемесячный платеж: ${monthlyPayment}`;
+        document.getElementById('interest').value = `${interestRate}%`;
+    }
+
+    // Добавляем обработчик для изменения значения ползунка
+    document.getElementById('term').addEventListener('input', function () {
+        const termValue = document.getElementById('termValue');
+        termValue.textContent = this.value; // Обновляем отображение количества месяцев
+    });
+</script>
