@@ -2,16 +2,20 @@
 <form id="loanForm">
     <label for="amount">Сумма кредита:</label>
     <input type="number" id="amount" placeholder="Введите сумму (₸)"><br>
+
     <label for="term">Срок кредитования (в месяцах):</label>
     <div class="range-container">
         <input type="range" id="term" min="1" max="24" value="12">
-        <span class="range-value" id="termValue">12</span> месяцев
-    </div> <!-- Ползунок для выбора количества месяцев -->
+        <span class="range-value" id="termValue">12</span> месяцев  <!-- Ползунок для выбора количества месяцев -->
+    </div>
+
     <label for="interest">Процентная ставка (автоматическая):</label>
     <input type="text" id="interest" disabled><br>
+
     <button type="button" onclick="calculate()">Рассчитать</button>
 </form>
 <div id="result"></div>
+
 <script>
     function calculate() {
         // Получаем значения из формы
@@ -33,6 +37,8 @@
         // Проводим расчет ежемесячного платежа
         const monthlyInterest = (interestRate / 100) / 12; // Преобразуем годовую ставку в месячную
         const monthlyPayment = ((amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -term))).toFixed(2);
+
+        // Проверяем корректность введенной суммы кредита
         if (isNaN(amount) || amount < 1000) {
             document.getElementById('result').innerHTML = 'Сумма займа должна быть не менее 1000 ₸';
             return;

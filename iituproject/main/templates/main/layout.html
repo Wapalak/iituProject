@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Голда в кредит{% endblock %}</title>
+
+    <!-- Подключение стилей Bootstrap и пользовательских стилей -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
@@ -12,11 +14,18 @@
     <header>
         <h1>Голда в кредит</h1><br>
         <nav>
+            <!-- Навигационные ссылки -->
             <a href="{% url 'home' %}"><i class="fas fa-home"></i> Главная</a>
             <a href="{% url 'about' %}"><i class="fas fa-fingerprint"></i> Про нас</a>
             <a href="{% url 'news_home' %}"><i class="fas fa-book-open"></i> Отзывы</a>
             <a href="#"><i class="fas fa-phone"></i> Контакты</a></li>
-            <a href="{% url 'create' %}"><button class="btn btn-info"><i class="fas fa-plus-circle">Написать отзыв</i></button></a>
+
+            <!-- Кнопка для создания нового отзыва -->
+            <a href="{% url 'create' %}">
+                <button class="btn btn-info">
+                    <i class="fas fa-plus-circle"></i> Написать отзыв
+                </button>
+            </a>
         </nav>
     </header>
 
