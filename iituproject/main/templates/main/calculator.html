@@ -33,6 +33,10 @@
         // Проводим расчет ежемесячного платежа
         const monthlyInterest = (interestRate / 100) / 12; // Преобразуем годовую ставку в месячную
         const monthlyPayment = ((amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -term))).toFixed(2);
+        if (isNaN(amount) || amount < 1000) {
+            document.getElementById('result').innerHTML = 'Сумма займа должна быть не менее 1000';
+            return;
+        }
 
         // Выводим результат на страницу
         document.getElementById('result').innerHTML = `Ежемесячный платеж: ${monthlyPayment}`;
