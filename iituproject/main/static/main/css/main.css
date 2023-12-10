@@ -2,37 +2,43 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
-/* Стили для боковой панели */
-
-aside {
-    background-color: #333;
-    color: #fff;
-    width: 200px;
-    padding: 20px;
-    height: 100vh; /* Высота на весь экран */
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-aside ul {
-    list-style: none
-}
-
-aside ul li {
+/* Стили для панели навигации */
+header {
+    background-color: #3b3939;
     color: #fff;
     display: block;
-    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
 }
-
-aside ul li:hover, aside ul a:hover {
-    color: #eb5959;
+nav a {
+    color: #fff;
+    margin: 0 10px;
     text-decoration: none;
-    transform: scale(1.05);
+    transition: color 0.3s;
 }
 
+nav a:hover {
+    color: #ff0777; /* Цвет при наведении */
+}
+
+/*header ul {*/
+/*    list-style: none*/
+/*}*/
+
+/*header ul li {*/
+/*    color: #fff;*/
+/*    display: block;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*header ul li:hover, header ul a:hover {*/
+/*    color: #eb5959;*/
+/*    text-decoration: none;*/
+/*    transform: scale(1.05);*/
+/*}*/
 
 .logo {
     font-size: 1.5em;
@@ -64,7 +70,9 @@ ul a:hover {
 /* Стили для основного контента */
 
 main {
-    margin-left: 220px; /* Чтобы контент не перекрывал боковую панель */
+    margin-top: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
     padding: 20px;
 }
 
