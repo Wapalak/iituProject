@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50, verbose_name='Название')),
                 ('review', models.CharField(max_length=200, verbose_name='Отзыв')),
+                ('rating', models.TextField(verbose_name='rating')),
                 ('full_text', models.TextField(verbose_name='Текст')),
                 ('date', models.DateTimeField(verbose_name='Дата публикации')),
             ],

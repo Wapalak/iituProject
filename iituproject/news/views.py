@@ -27,6 +27,7 @@ def create(request):
             backup_data = {
                 'title': new_article.title,
                 'review': new_article.review,
+                'rating': new_article.rating,
                 'full_text': new_article.full_text,
                 'date': new_article.date.strftime("%Y-%m-%d %H:%M:%S")
                 # Добавьте другие поля вашей модели, если нужно
