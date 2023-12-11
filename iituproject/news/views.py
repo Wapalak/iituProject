@@ -37,8 +37,8 @@ def create(request):
             backup_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'backup', 'reviews_backup.json')
 
             # Запись данных в файл
-            with open(backup_file_path, 'a+') as backup_file:
-                backup_file.write(json.dumps(backup_data) + '\n')
+            with open(backup_file_path, 'a+', encoding='utf-8') as backup_file:
+                backup_file.write(json.dumps(backup_data, ensure_ascii=False) + '\n')
 
             return redirect('news_home')
         else:
