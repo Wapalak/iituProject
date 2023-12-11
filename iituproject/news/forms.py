@@ -11,7 +11,7 @@ class ArticlesForm(ModelForm):
             # Виджеты для полей формы
             "title": TextInput(attrs={'class': 'form', 'placeholder': 'Имя Фамилия'}),
             "review": TextInput(attrs={'class': 'form', 'placeholder': 'Краткий отзыв'}),
-            "rating": Textarea(attrs={'class': 'form', 'placeholder': 'rating'}),
+            "rating": Textarea(attrs={'class': 'form', 'placeholder': 'Рейтинг'}),
             "full_text": Textarea(attrs={'class': 'form', 'placeholder': 'Текст отзыва'}),
             "date": DateTimeInput(attrs={'class': 'form', 'placeholder': 'Дата'})
         }

@@ -6,23 +6,23 @@
     <h1>Отзывы</h1>
     {% if news %}
         {% for el in news %}
-            {% if el.rating == "1" or el.rating == "2" %}
-                <div class="alert alert-danger">
+            {% if el.rating == "1" or el.rating == "2" %} <!-- При рейтинге 1-2 ставит красный цвет отзыву -->
+                <div class="alert alert-danger"> <!-- красный цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
-                    <a href="{% url 'news-detail' el.id %}" class="btn btn-danger">Читать полностью</a>
+                    <a href="{% url 'news-detail' el.id %}" class="btn btn-danger">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->
                 </div>
-            {% elif el.rating == "4" or el.rating == "5" %}
-                <div class="alert alert-success">
+            {% elif el.rating == "4" or el.rating == "5" %} <!-- При рейтинге 4-5 ставит зеленый цвет отзыву -->
+                <div class="alert alert-success"> <!-- зеленый цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
-                    <a href="{% url 'news-detail' el.id %}" class="btn btn-success">Читать полностью</a>
+                    <a href="{% url 'news-detail' el.id %}" class="btn btn-success">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->
                 </div>
-            {% else %}
-                <div class="alert alert-warning">
+            {% else %} <!-- При другом рейтинге (в нашем случае 3) ставит жёлтый цвет отзыву -->
+                <div class="alert alert-warning"> <!-- желтый цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
-                    <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать полностью</a>
+                    <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->
                 </div>
             {% endif %}
         {% endfor %}
