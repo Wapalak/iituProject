@@ -7,19 +7,19 @@
     {% if news %}
         {% for el in news %}
             {% if el.rating == "1" or el.rating == "2" %} <!-- При рейтинге 1-2 ставит красный цвет отзыву -->
-                <div class="alert alert-danger"> <!-- красный цвет -->
+                <div class="alert alert-danger" id="alertd"> <!-- красный цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
                     <a href="{% url 'news-detail' el.id %}" class="btn btn-danger">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->
                 </div>
             {% elif el.rating == "4" or el.rating == "5" %} <!-- При рейтинге 4-5 ставит зеленый цвет отзыву -->
-                <div class="alert alert-success"> <!-- зеленый цвет -->
+                <div class="alert alert-success" id="alerts"> <!-- зеленый цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
                     <a href="{% url 'news-detail' el.id %}" class="btn btn-success">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->
                 </div>
             {% else %} <!-- При другом рейтинге (в нашем случае 3) ставит жёлтый цвет отзыву -->
-                <div class="alert alert-warning"> <!-- желтый цвет -->
+                <div class="alert alert-warning" id="alertw"> <!-- желтый цвет -->
                     <p> {{ el.title }} </p>
                     <p> {{ el.review }} </p>
                     <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать полностью</a> <!-- В зависимости от цвета также корректирует цвет кнопки -->

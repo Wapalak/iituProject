@@ -13,26 +13,37 @@
 </head>
 <body>
     <header>
-        <h1>Голда в кредит</h1><br>
+        <div id="logo">
+            <img src="static/main/img/coin.ico" width="50px" height="50px" >
+            <h1>Голда в кредит</h1><br>
+        </div>
+
         <nav>
             <!-- Навигационные ссылки -->
-            <a href="{% url 'home' %}"><i class="fas fa-home"></i> Главная</a>
-            <a href="{% url 'about' %}"><i class="fas fa-fingerprint"></i> Про нас</a>
-            <a href="{% url 'news_home' %}"><i class="fas fa-book-open"></i> Отзывы</a>
-            <a href="#"><i class="fas fa-phone"></i> Контакты</a></li>
-
-            <!-- Кнопка для создания нового отзыва -->
-            <a href="{% url 'create' %}">
-                <button class="btn btn-info">
+            <ul>
+                <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="{% url 'about' %}"><i class="fas fa-fingerprint"></i> Про нас</a></li>
+                <li><a href="{% url 'news_home' %}"><i class="fas fa-newspaper"></i> Отзывы</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> Контакты</a></li>
+                <!-- Кнопка для создания нового отзыва -->
+                <a href="{% url 'create' %}">
+                <button class="btn btn-info" style="margin-bottom: -40px">
                     <i class="fas fa-plus-circle"></i> Написать отзыв
                 </button>
-            </a>
+                </a>
+            </ul>
+
+
         </nav>
     </header>
 
     <main>
         {% block content %}
         {% endblock %}
+        <br>
     </main>
+    <footer>
+        Текст
+    </footer>
 </body>
 </html>

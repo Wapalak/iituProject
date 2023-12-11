@@ -5,6 +5,12 @@ body {
     text-align: center;
 }
 
+/* Стили для кнопок */
+#alertd, #alertw, #alerts {
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
 /* Стили для панели навигации */
 header {
     background-color: #3b3939;
@@ -12,6 +18,10 @@ header {
     display: block;
     padding: 10px;
     text-align: center;
+}
+#logo {
+    display: flex;
+    justify-content: center;
 }
 nav a {
     color: #fff;
@@ -24,21 +34,21 @@ nav a:hover {
     color: #ff0777; /* Цвет при наведении */
 }
 
-/*header ul {*/
-/*    list-style: none*/
-/*}*/
+header ul {
+    list-style: none
+}
 
-/*header ul li {*/
-/*    color: #fff;*/
-/*    display: block;*/
-/*    margin-top: 20px;*/
-/*}*/
+header ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+}
 
-/*header ul li:hover, header ul a:hover {*/
-/*    color: #eb5959;*/
-/*    text-decoration: none;*/
-/*    transform: scale(1.05);*/
-/*}*/
+header ul li:hover, header ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
 
 .logo {
     font-size: 1.5em;
@@ -56,6 +66,8 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 ul a {
@@ -71,10 +83,19 @@ ul a:hover {
 
 main {
     margin-top: 50px;
-    margin-left: 500px;
-    margin-right: 500px;
     padding: 20px;
 }
+
+/* Стили для нижней панели */
+footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #3b3939;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
 
 /* Стили для навигационных элементов */
 
