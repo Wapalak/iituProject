@@ -128,3 +128,48 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import logging
+import json
+
+# class SQLFilter(logging.Filter):
+#     def filter(self, record):
+#         return any(keyword in record.getMessage() for keyword in ["UPDATE", "DELETE"])
+
+class JSONFormatter(logging.Formatter):
+    def format(self, record):
+        message = json.dumps(record.__dict__, ensure_ascii=False)
+        return message
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": True,
+    "formatters": {
+        "json": {
+            "()": JSONFormatter,
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "general.json",
+            "encoding": "utf-8",
+            # "filters": ["sql_filter"],
+            "formatter": "json",
+        },
+    },
+    # "filters": {
+    #     "sql_filter": {
+    #         "()": SQLFilter,
+    #     }
+    # },
+    "loggers": {
+        "django.db.backends": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}
+
