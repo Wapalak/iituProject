@@ -19,10 +19,12 @@ header {
     padding: 10px;
     text-align: center;
 }
+
 #logo {
     display: flex;
     justify-content: center;
 }
+
 nav a {
     color: #fff;
     margin: 0 10px;
@@ -88,14 +90,14 @@ main {
 
 /* Стили для нижней панели */
 footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #3b3939;
-        color: #fff;
-        padding: 10px 0;
-        text-align: center;
-    }
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #3b3939;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
 
 /* Стили для навигационных элементов */
 

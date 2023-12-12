@@ -5,10 +5,10 @@ from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
 class ArticlesForm(ModelForm):
     class Meta:
         model = Articles
-        fields = ['title', 'review', 'rating', 'full_text',]
+        fields = ['title', 'review', 'rating', 'full_text', ]
 
         widgets = {
-            # Виджеты для полей формы
+            # Определение виджетов для полей формы
             "title": TextInput(attrs={'class': 'form', 'placeholder': 'Имя Фамилия'}),
             "review": TextInput(attrs={'class': 'form', 'placeholder': 'Цель кредита'}),
             "rating": Textarea(attrs={'class': 'form', 'placeholder': 'Рейтинг'}),

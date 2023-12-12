@@ -1,3 +1,4 @@
+<!-- Форма калькулятора кредита -->
 <h2>Калькулятор кредита</h2>
 <form id="loanForm">
     <label for="amount">Сумма кредита:</label>
@@ -5,8 +6,9 @@
 
     <label for="term">Срок кредитования (в месяцах):</label>
     <div class="range-container">
+        <!-- Ползунок для выбора срока кредита -->
         <input type="range" id="term" min="1" max="24" value="12">
-        <span class="range-value" id="termValue">12</span> месяцев  <!-- Ползунок для выбора количества месяцев -->
+        <span class="range-value" id="termValue">12</span> месяцев
     </div>
 
     <label for="interest">Процентная ставка (автоматическая):</label>

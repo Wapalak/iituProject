@@ -8,6 +8,7 @@ from PIL import Image
 import io
 from .models import CurrencyRate  # Импорт модели CurrencyRate из ваших файлов
 
+
 def index(request):
     data = {'title': 'Главная страница'}
 
@@ -18,12 +19,14 @@ def index(request):
     except loader.TemplateDoesNotExist:
         raise Http404
 
+
 def about(request):
     try:
         loader.get_template('main/about.html')
         return render(request, 'main/about.html')
     except loader.TemplateDoesNotExist:
         raise Http404
+
 
 def get_currency_data(request):
     app_id = '184ced509b81482c9d5b700969a414e0'
@@ -84,6 +87,7 @@ def get_currency_data(request):
 
     # Если запрос вернулся с ошибкой, просто вернем пустой HTTP-ответ
     return HttpResponse(status=500)
+
 
 def currency_chart(request):
     return render(request, 'currency_chart.html')
