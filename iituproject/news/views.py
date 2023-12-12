@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView
-from django.http import Http404
 import json
 import os
 
