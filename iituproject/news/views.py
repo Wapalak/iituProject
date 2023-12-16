@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView
 from django.http import Http404
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Articles
+from .serializers import ArticlesSerializer
 import json
 import os
 
@@ -37,7 +41,8 @@ def create(request):
             }
 
             # Путь к файлу для сохранения бэкапа данных
-            backup_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'backup', 'reviews_backup.json')
+            backup_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                            'backup', 'reviews_backup.json')
 
             # Запись данных в файл
             with open(backup_file_path, 'a+', encoding='utf-8') as backup_file:
@@ -56,3 +61,23 @@ def create(request):
     }
 
     return render(request, 'news/create.html', data)
+
+
+# Представление для получения списка новостей в виде JSON через API
+@api_view(['GET'])
+def api_news_list(request):
+    news = Articles.objects.order_by('-date')
+    serializer = ArticlesSerializer(news, many=True)
+    return Response(serializer.data)
+
+
+# Представление для создания новости через API
+@api_view(['POST'])
+def api_create_news(request):
+    if request.method == 'POST':
+        serializer = ArticlesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            # Дополнительные действия, если нужно сохранять бэкапы или выполнять другие операции
+            return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
