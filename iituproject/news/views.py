@@ -68,7 +68,7 @@ def create(request):
 def api_news_list(request):
     news = Articles.objects.order_by('-date')
     serializer = ArticlesSerializer(news, many=True)
-    return Response(serializer.data)
+    return render(request, 'news/news_list.html', {'news': news})
 
 
 # Представление для создания новости через API
